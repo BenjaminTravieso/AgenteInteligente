@@ -63,8 +63,6 @@ def generar_estado_resoluble():
         if heuristica_manhattan(estado_inicial) % 2 == heuristica_manhattan(estado_meta) % 2:
             return estado_inicial
 
-import heapq
-import time
 
 def a_estrella(estado_inicial):
     inicio = time.time()
