@@ -73,7 +73,7 @@ def bfs(estado_inicial):
         visitados.add(estado_tuple)
         if estado_actual == estado_meta:
             tiempo_final = time.time() - tiempo_inicio
-            return camino, tiempo_final, len(camino)  # 📌 Devuelve la cantidad de movimientos
+            return camino, tiempo_final, len(camino)  
         for mov, nuevo_estado in generar_sucesores(estado_actual):
             cola.append((nuevo_estado, camino + [mov]))
     return None, 0, 0
@@ -81,7 +81,7 @@ def bfs(estado_inicial):
 # Inicializar Pygame
 pygame.init()
 pantalla = pygame.display.set_mode((ANCHO, ALTO))
-pygame.display.set_caption("Puzzle 8 - Agente AI")
+pygame.display.set_caption("Puzzle 8 - Agente BFS")
 
 estado_actual = generar_estado_resoluble()
 solucion = None
@@ -107,7 +107,7 @@ def dibujar_tablero(estado, tiempo, movimientos):
     pantalla.blit(fuente.render("Reiniciar", True, BLANCO), (180, 320))
 
     pantalla.blit(fuente.render(f"Tiempo: {tiempo:.2f} s", True, NEGRO), (90, 360))  
-    pantalla.blit(fuente.render(f"Movimientos: {movimientos}", True, NEGRO), (90, 380))  # 📌 Mostramos el contador de movimientos
+    pantalla.blit(fuente.render(f"Movimientos: {movimientos}", True, NEGRO), (90, 380))  
 
 corriendo = True
 movimiento_indice = 0
